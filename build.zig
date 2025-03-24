@@ -1,15 +1,15 @@
 const std = @import("std");
+
 const toolbox_pkg = @import("toolbox");
 const Toolbox = toolbox_pkg.Toolbox;
-
-const utils = @import("build/utils.zig");
-const Paths = utils.Paths;
-const flags_size = utils.flags_size;
 
 const backends = @import("build/backends.zig");
 pub const Renderer = backends.Renderer;
 pub const Platform = backends.Platform;
 const backendOptions = backends.backendOptions;
+const utils = @import("build/utils.zig");
+const Paths = utils.Paths;
+const flags_size = utils.flags_size;
 
 fn update(toolbox: *Toolbox, path: *const Paths) !void {
     for ([_][]const u8{
@@ -165,7 +165,7 @@ pub fn build(builder: *std.Build) !void {
         .imgui = .{
             .name = "ocornut/imgui",
             .host = .github,
-            .ref = .tag,
+            .ref = .commit,
         },
         .dcimgui = .{
             .name = "dearimgui/dear_bindings",
